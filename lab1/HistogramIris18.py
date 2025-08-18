@@ -1,11 +1,21 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path = input("Enter path to iris CSV file: ")
-df = pd.read_csv(file_path)
+# Load the Iris dataset (from seaborn or a CSV)
+from sklearn.datasets import load_iris
 
-plt.hist(df['sepal_length'], bins=10, edgecolor='black')
-plt.xlabel("Sepal Length")
-plt.ylabel("Frequency")
-plt.title("Histogram of Sepal Length")
+# Load dataset
+iris = load_iris()
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+
+# Check available columns
+# print(df.columns)
+
+# Plot histogram for Sepal Length
+plt.hist(df['sepal length (cm)'], bins=10, color='lavender', edgecolor='black')
+plt.title('Histogram of Sepal Length (Iris Dataset)')
+plt.xlabel('Sepal Length (cm)')
+plt.ylabel('Frequency')
+plt.grid(True)
 plt.show()
+
